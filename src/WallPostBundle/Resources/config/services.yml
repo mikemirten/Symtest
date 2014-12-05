@@ -1,0 +1,4 @@
+services:
+#    wall_post.example:
+#        class: WallPostBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
