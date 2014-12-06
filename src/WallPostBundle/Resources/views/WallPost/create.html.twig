@@ -1,7 +1,12 @@
-{% extends "::base.html.twig" %}
+{% extends "WallPostBundle::base.layout.html.twig" %}
 
 {% block title %}WallPostBundle:WallPost:create{% endblock %}
 
 {% block body %}
-	{{ form(postForm) }}
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			{% form_theme postForm 'bootstrap_3_layout.html.twig' %}
+			{{ form(postForm) }}
+		</div>
+	</div>
 {% endblock %}

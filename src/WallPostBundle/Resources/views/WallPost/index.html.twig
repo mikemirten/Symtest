@@ -1,19 +1,35 @@
-{% extends "::base.html.twig" %}
+{% extends "WallPostBundle::base.layout.html.twig" %}
 
 {% block title %}Posts{% endblock %}
 
 {% block body %}
-	<div class="wall-posts">
-	{% for post in posts %}
-		<article>
-			<h3>{{ post.title }}</h3>
-			<p>{{ post.body }}</p>
-			<span>{{ post.author }}</span>
-		</article>
-	{% endfor  %}
+	<div class="row">
+		<div class="col-md-12">
+			{% for post in posts %}
+				<article class="panel panel-default">
+					<div class="panel-heading">{{ post.title }}</div>
+
+					<div class="panel-body">
+						<p>{{ post.body }}</p>
+						{% if post.author is empty %}
+							<span class="text-muted">Anonymous</span>
+						{% else %}
+							<span class="text-muted text-success">Author: {{ post.author }}</span>
+						{% endif %}
+					</div>
+				</article>
+			{% endfor  %}
+		</div>
 	</div>
 	
-	<div class="wall-addpost">
-		{{ form(postForm) }}
+	<div class="row">
+		<div class="col-md-6">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					{% form_theme postForm 'bootstrap_3_layout.html.twig' %}
+					{{ form(postForm) }}
+				</div>
+			</div>
+		</div>
 	</div>
 {% endblock %}
