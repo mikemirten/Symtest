@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-		
-        {% block stylesheets %}
+	<head>
+		<meta charset="UTF-8" />
+		<title>{% block title %}Welcome!{% endblock %}</title>
+
+		{% block stylesheets %}
 			<link rel="stylesheet" type="text/css" href="{{ asset('bundles/wallpost/css/bootstrap.min.css') }}" />
 			<link rel="stylesheet" type="text/css" href="{{ asset('bundles/wallpost/css/bootstrap-theme.min.css') }}" />
 		{% endblock %}
-		
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
+
+		<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+	</head>
+	<body>
 		{% block navbar %}
 			<nav class="navbar navbar-default" role="navbar">
 				<div class="container-fluid">
@@ -21,14 +21,14 @@
 				</div>
 			</nav>
 		{% endblock %}
-		
+
 		<div class="container">
 			{% block body %}{% endblock %}
 		</div>
-		
-        {% block javascripts %}
+
+		{% block javascripts %}
 			<script type="text/javascript" src="{{ asset('bundles/wallpost/js/jquery-2.1.1.min.js') }}"></script>
 			<script type="text/javascript" src="{{ asset('bundles/wallpost/js/bootstrap.min.js') }}"></script>
 		{% endblock %}
-    </body>
+	</body>
 </html>
