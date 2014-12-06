@@ -1,3 +1,7 @@
-wall_post_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: WallPostBundle:Default:index }
+wallpost.index:
+    path:     /
+    defaults: { _controller: WallPostBundle:WallPost:index }
+
+wallpost.create:
+    path:     /create
+    defaults: { _controller: WallPostBundle:WallPost:create }

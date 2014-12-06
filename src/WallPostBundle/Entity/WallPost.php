@@ -3,12 +3,14 @@
 namespace WallPostBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * WallPost
  *
- * @ORM\Table(name = "wall_post")
+ * @ORM\Table(name = "wall_posts")
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
  */
 class WallPost
 {
@@ -25,6 +27,7 @@ class WallPost
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
+	 * @Assert\Length(min = 10, max = 40)
      */
     private $title;
 
@@ -151,4 +154,13 @@ class WallPost
     {
         return $this->createDate;
     }
+	
+	/**
+	 * @ORM\PrePersist
+	 */
+	public function creteDatetime()
+	{
+		$this->createDate = new \DateTime();
+	}
+	
 }
